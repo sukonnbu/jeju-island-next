@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "나눔바른고딕";
+    src: url("./fonts/NanumBarunGothic.ttf") format('woff'),
+        url("./fonts/NanumBarunGothic.ttf") format('woff2');
+}
+
+@font-face {
+    font-family: "나눔스퀘어볼드";
+    src: url("./fonts/NanumSquareB.ttf") format("woff"),
+        url("./fonts/NanumSquareB.ttf") format("woff2");
+}
