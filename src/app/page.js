@@ -87,14 +87,6 @@ export default function Home() {
       content: "컴퓨터 인재 양성을 위한 체험형 박물관"
     },
     {
-      name: "이호테우 해변",
-      position: {
-        lat: 33.4961965681116,
-        lng: 126.455892860155
-      },
-      content: "조랑말 등대가 유명한 해변"
-    },
-    {
       name: "용두암",
       position: {
         lat: 33.5148035919525,
@@ -117,22 +109,6 @@ export default function Home() {
         lng: 126.352722700715
       },
       content: "제주 자연의 재료를 토핑한 피자 만들기 체험"
-    },
-    {
-      name: "스위트메이호텔 서귀포",
-      position: {
-        lat: 33.2524815629392,
-        lng: 126.507548268061
-      },
-      content: "B조 숙소. 조식 뷔페가 다양하고 맛있다는 소문이 있다."
-    },
-    {
-      name: "더퍼스트70호텔",
-      position: {
-        lat: 33.2472529671466,
-        lng: 126.566847661689
-      },
-      content: "C조 숙소. 무난하다."
     }
   ];
   const AData = [
@@ -153,7 +129,43 @@ export default function Home() {
       content: "A조 숙소. 방이 가장 넓고 즐기기 좋다고 한다."
     }
   ];
-  const BData = [];
+  const BData = [
+    {
+      name: "이호테우 해변",
+      position: {
+        lat: 33.4961965681116,
+        lng: 126.455892860155
+      },
+      content: "조랑말 등대가 유명한 해변"
+    },
+    {
+      name: "스위트메이호텔 서귀포",
+      position: {
+        lat: 33.2524815629392,
+        lng: 126.507548268061
+      },
+      content: "B조 숙소. 조식 뷔페가 다양하고 맛있다는 소문이 있다."
+    }
+  ];
+  const CData = [
+    {
+      name: "이호테우 해변",
+      position: {
+        lat: 33.4961965681116,
+        lng: 126.455892860155
+      },
+      content: "조랑말 등대가 유명한 해변"
+    },
+    {
+      name: "더퍼스트70호텔",
+      position: {
+        lat: 33.2472529671466,
+        lng: 126.566847661689
+      },
+      content: "C조 숙소. 무난하다."
+    }
+  ];
+
   const AFirstLine = [
       { lat: 33.5059364682672, lng: 126.495951277797 },
       { lat: 33.5148035919525, lng: 126.511798046978 },
@@ -239,7 +251,6 @@ export default function Home() {
                 level={11}
             >
               {data.map(({name, position, content}, index) => {
-
                 const [isVisible, setIsVisible] = useState(false)
 
                 return (<>
@@ -252,28 +263,124 @@ export default function Home() {
                               position={position}
                               yAnchor={1.1}
                           >
-                            <div className="w-52 m-1 bg-emerald-200 border-2 border-emerald-700">
+                            <div className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
                               <h3 className="text-xl text-center">
                                 <Link href={"/placeinfo#" + name}>{name}</Link>
                               </h3>
-                              <Image src={"/지도이미지/" + name + ".jpg"} alt={name} width={200} height={200}/>
-                              <span className="text-basic text-wrap p-1">{content}</span>
+                              <Image
+                                  className="ml-0.5"
+                                  src={"/지도이미지/" + name + ".jpg"}
+                                  alt={name}
+                                  width={200}
+                                  height={200}
+                              />
+                              <span className="text-justify text-wrap p-1">{content}</span>
                             </div>
                           </CustomOverlayMap>}
                     </>
                 );
               })}
               {team === "1" && <>
+                {AData.map(({name, position, content}, index) => {
+                  const [isVisible, setIsVisible] = useState(false)
+
+                  return (<>
+                        <MapMarker
+                            key={index}
+                            position={position}
+                            onClick={() => setIsVisible(!isVisible)} />
+                        {isVisible &&
+                            <CustomOverlayMap
+                                position={position}
+                                yAnchor={1.1}
+                            >
+                              <div className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
+                                <h3 className="text-xl text-center">
+                                  <Link href={"/placeinfo#" + name}>{name}</Link>
+                                </h3>
+                                <Image
+                                    className="ml-0.5"
+                                    src={"/지도이미지/" + name + ".jpg"}
+                                    alt={name}
+                                    width={200}
+                                    height={200}
+                                />
+                                <span className="text-justify text-wrap p-1">{content}</span>
+                              </div>
+                            </CustomOverlayMap>}
+                      </>
+                  );
+                })}
                 <Polyline path={AFirstLine} strokeWeight={5} strokeColor="#FF0000" opacity={0.5} endArrow={true}/>
                 <Polyline path={ASecondLine} strokeWeight={5} strokeColor="#00FF00" opacity={0.5} endArrow={true} />
                 <Polyline path={AThirdLine} strokeWeight={5} strokeColor="#0000FF" opacity={0.5} endArrow={true} />
               </>}
               {team === "2" && <>
+                {BData.map(({name, position, content}, index) => {
+                  const [isVisible, setIsVisible] = useState(false)
+
+                  return (<>
+                        <MapMarker
+                            key={index}
+                            position={position}
+                            onClick={() => setIsVisible(!isVisible)} />
+                        {isVisible &&
+                            <CustomOverlayMap
+                                position={position}
+                                yAnchor={1.1}
+                            >
+                              <div className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
+                                <h3 className="text-xl text-center">
+                                  <Link href={"/placeinfo#" + name}>{name}</Link>
+                                </h3>
+                                <Image
+                                    className="ml-0.5"
+                                    src={"/지도이미지/" + name + ".jpg"}
+                                    alt={name}
+                                    width={200}
+                                    height={200}
+                                />
+                                <span className="text-justify text-wrap p-1">{content}</span>
+                              </div>
+                            </CustomOverlayMap>}
+                      </>
+                  );
+                })}
                 <Polyline path={BFirstLine} strokeWeight={5} strokeColor="#FF0000" opacity={0.5} endArrow={true} />
                 <Polyline path={BSecondLine} strokeWeight={5} strokeColor="#00FF00" opacity={0.5} endArrow={true} />
                 <Polyline path={BThirdLine} strokeWeight={5} strokeColor="#0000FF" opacity={0.5} endArrow={true} />
               </>}
               {team === "3" && <>
+                {CData.map(({name, position, content}, index) => {
+                  const [isVisible, setIsVisible] = useState(false)
+
+                  return (<>
+                        <MapMarker
+                            key={index}
+                            position={position}
+                            onClick={() => setIsVisible(!isVisible)} />
+                        {isVisible &&
+                            <CustomOverlayMap
+                                position={position}
+                                yAnchor={1.1}
+                            >
+                              <div className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
+                                <h3 className="text-xl text-center">
+                                  <Link href={"/placeinfo#" + name}>{name}</Link>
+                                </h3>
+                                <Image
+                                    className="ml-0.5"
+                                    src={"/지도이미지/" + name + ".jpg"}
+                                    alt={name}
+                                    width={200}
+                                    height={200}
+                                />
+                                <span className="text-justify text-wrap p-1">{content}</span>
+                              </div>
+                            </CustomOverlayMap>}
+                      </>
+                  );
+                })}
                 <Polyline path={CFirstLine} strokeWeight={5} strokeColor="#FF0000" opacity={0.5} endArrow={true} />
                 <Polyline path={CSecondLine} strokeWeight={5} strokeColor="#00FF00" opacity={0.5} endArrow={true} />
                 <Polyline path={CThirdLine} strokeWeight={5} strokeColor="#0000FF" opacity={0.5} endArrow={true} />
