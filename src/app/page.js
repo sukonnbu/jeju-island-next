@@ -250,7 +250,7 @@ export default function Home() {
             <Map
                 ref={mapRef}
                 center={{lat: 33.361427, lng: 126.529417}}
-                style={{width: "400px", height: "40px"}}
+                style={{width: "400px", height: "400px"}}
                 level={11}
             >
               {data.map(({name, position, content}, index) => {
