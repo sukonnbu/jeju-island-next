@@ -397,6 +397,9 @@ export default function Home() {
                 지도 축척 초기화
               </button>
             </div>
+            <div>
+              <span>지도가 안보인다면?<i className="fa-solid fa-arrow-right m-1"></i>새로고침</span>
+            </div>
             <div className="flex justify-end">
               <div>
                 <button

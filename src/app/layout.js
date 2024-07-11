@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="kr">
       <body>
         <nav className="font-NanumSquare bg-jeju-banner bg-cover p-3 z-10">
           <div>
