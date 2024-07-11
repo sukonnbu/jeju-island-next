@@ -243,6 +243,9 @@ export default function Home() {
         <Script src={KAKAO_SDK_URL} strategy="beforeInteractive"/>
         <Script src="https://kit.fontawesome.com/e3c9b0d316.js" crossorigin="anonymous"></Script>
         <div className="flex flex-col juistify-center">
+          <div className="flex justify-center">
+            <span className="text-slate-400">지도가 안보인다면?<i className="fa-solid fa-arrow-right m-1"></i>새로고침</span>
+          </div>
           <div className="flex justify-center z-0">
             <Map
                 ref={mapRef}
@@ -257,13 +260,14 @@ export default function Home() {
                       <MapMarker
                           key={index}
                           position={position}
-                          onClick={() => setIsVisible(!isVisible)} />
+                          onClick={() => setIsVisible(!isVisible)}/>
                       {isVisible &&
                           <CustomOverlayMap
                               position={position}
                               yAnchor={1.1}
                           >
-                            <div className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
+                            <div
+                                className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
                               <h3 className="text-xl text-center">
                                 <Link href={"/placeinfo#" + name}>{name}</Link>
                               </h3>
@@ -288,13 +292,14 @@ export default function Home() {
                         <MapMarker
                             key={index}
                             position={position}
-                            onClick={() => setIsVisible(!isVisible)} />
+                            onClick={() => setIsVisible(!isVisible)}/>
                         {isVisible &&
                             <CustomOverlayMap
                                 position={position}
                                 yAnchor={1.1}
                             >
-                              <div className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
+                              <div
+                                  className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
                                 <h3 className="text-xl text-center">
                                   <Link href={"/placeinfo#" + name}>{name}</Link>
                                 </h3>
@@ -312,8 +317,8 @@ export default function Home() {
                   );
                 })}
                 <Polyline path={AFirstLine} strokeWeight={5} strokeColor="#FF0000" opacity={0.5} endArrow={true}/>
-                <Polyline path={ASecondLine} strokeWeight={5} strokeColor="#00FF00" opacity={0.5} endArrow={true} />
-                <Polyline path={AThirdLine} strokeWeight={5} strokeColor="#0000FF" opacity={0.5} endArrow={true} />
+                <Polyline path={ASecondLine} strokeWeight={5} strokeColor="#00FF00" opacity={0.5} endArrow={true}/>
+                <Polyline path={AThirdLine} strokeWeight={5} strokeColor="#0000FF" opacity={0.5} endArrow={true}/>
               </>}
               {team === "2" && <>
                 {BData.map(({name, position, content}, index) => {
@@ -323,13 +328,14 @@ export default function Home() {
                         <MapMarker
                             key={index}
                             position={position}
-                            onClick={() => setIsVisible(!isVisible)} />
+                            onClick={() => setIsVisible(!isVisible)}/>
                         {isVisible &&
                             <CustomOverlayMap
                                 position={position}
                                 yAnchor={1.1}
                             >
-                              <div className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
+                              <div
+                                  className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
                                 <h3 className="text-xl text-center">
                                   <Link href={"/placeinfo#" + name}>{name}</Link>
                                 </h3>
@@ -346,9 +352,9 @@ export default function Home() {
                       </>
                   );
                 })}
-                <Polyline path={BFirstLine} strokeWeight={5} strokeColor="#FF0000" opacity={0.5} endArrow={true} />
-                <Polyline path={BSecondLine} strokeWeight={5} strokeColor="#00FF00" opacity={0.5} endArrow={true} />
-                <Polyline path={BThirdLine} strokeWeight={5} strokeColor="#0000FF" opacity={0.5} endArrow={true} />
+                <Polyline path={BFirstLine} strokeWeight={5} strokeColor="#FF0000" opacity={0.5} endArrow={true}/>
+                <Polyline path={BSecondLine} strokeWeight={5} strokeColor="#00FF00" opacity={0.5} endArrow={true}/>
+                <Polyline path={BThirdLine} strokeWeight={5} strokeColor="#0000FF" opacity={0.5} endArrow={true}/>
               </>}
               {team === "3" && <>
                 {CData.map(({name, position, content}, index) => {
@@ -358,13 +364,14 @@ export default function Home() {
                         <MapMarker
                             key={index}
                             position={position}
-                            onClick={() => setIsVisible(!isVisible)} />
+                            onClick={() => setIsVisible(!isVisible)}/>
                         {isVisible &&
                             <CustomOverlayMap
                                 position={position}
                                 yAnchor={1.1}
                             >
-                              <div className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
+                              <div
+                                  className="flex flex-col justify-center w-52 bg-emerald-200 border-2 border-emerald-700">
                                 <h3 className="text-xl text-center">
                                   <Link href={"/placeinfo#" + name}>{name}</Link>
                                 </h3>
@@ -381,9 +388,9 @@ export default function Home() {
                       </>
                   );
                 })}
-                <Polyline path={CFirstLine} strokeWeight={5} strokeColor="#FF0000" opacity={0.5} endArrow={true} />
-                <Polyline path={CSecondLine} strokeWeight={5} strokeColor="#00FF00" opacity={0.5} endArrow={true} />
-                <Polyline path={CThirdLine} strokeWeight={5} strokeColor="#0000FF" opacity={0.5} endArrow={true} />
+                <Polyline path={CFirstLine} strokeWeight={5} strokeColor="#FF0000" opacity={0.5} endArrow={true}/>
+                <Polyline path={CSecondLine} strokeWeight={5} strokeColor="#00FF00" opacity={0.5} endArrow={true}/>
+                <Polyline path={CThirdLine} strokeWeight={5} strokeColor="#0000FF" opacity={0.5} endArrow={true}/>
               </>}
             </Map>
           </div>
@@ -396,9 +403,6 @@ export default function Home() {
               >
                 지도 축척 초기화
               </button>
-            </div>
-            <div>
-              <span>지도가 안보인다면?<i className="fa-solid fa-arrow-right m-1"></i>새로고침</span>
             </div>
             <div className="flex justify-end">
               <div>
